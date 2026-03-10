@@ -1,0 +1,450 @@
+/* ── Node Graph Plugin Styles ─────────────────────────────────────────────
+   Mirrors nodegraph_max.html CSS exactly:
+   --bg:      #0d0f14
+   --surface: #151820
+   --border:  #252a35
+   --accent:  #00e5ff  (teal)
+   --accent2: #ff4d6d  (red/pink)
+   --text:    #c8d0e0
+   --muted:   #555f75
+   Panel: #4454704f (semi-transparent dark blue)
+   ─────────────────────────────────────────────────────────────────────── */
+
+.ng-root {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #0d0f14;
+  font-family: var(--font-interface), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ── Left Panel ─────────────────────────────────────────────────────────── */
+.ng-panel {
+  background: #4454704f;
+  width: 270px;
+  position: absolute;
+  z-index: 2;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.ng-panel.collapsed {
+  width: 30px;
+  background: #22222200;
+}
+
+.ng-panel.collapsed .ng-panel-content {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ng-collapse-btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  right: 0%;
+  padding: 2px 2px;
+  color: whitesmoke;
+  background: #222222a6;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+.ng-collapse-btn:hover { background: #747988; }
+
+.ng-panel-content {
+  padding: 5px;
+  margin-top: 32px;
+  margin-bottom: 3px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+/* ── Search ─────────────────────────────────────────────────────────────── */
+.ng-search-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.ng-search {
+  flex: 1;
+  min-width: 0;
+  padding: 7px 10px;
+  background: #151820 !important;
+  color: #c8d0e0;
+  border: 1px solid #252a35;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.ng-search::placeholder { color: #555f75; }
+.ng-search:focus {
+  border-color: #00e5ff;
+  box-shadow: 0 0 0 2px rgba(0,229,255,0.15);
+}
+
+.ng-nav-btn {
+  width: 30px;
+  height: 30px;
+  padding: 2px 2px;
+  color: whitesmoke;
+  background: #151820 !important;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  user-select: none;
+}
+.ng-nav-btn:hover {
+  border-color: #00e5ff;
+  background: rgba(0,229,255,0.08);
+  box-shadow: 0 0 6px rgba(0,229,255,0.2);
+}
+.ng-nav-btn:active { background: rgba(0,229,255,0.18); }
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.ng-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+.ng-btn:active { transform: scale(0.97); }
+
+.ng-btn-save {
+  background: rgba(0,229,255,0.12) !important;
+  color: #00e5ff;
+  border-color: rgba(0,229,255,0.35);
+}
+.ng-btn-save:hover {
+  background: rgba(0,229,255,0.22) !important;
+  border-color: #00e5ff;
+  box-shadow: 0 0 10px rgba(0,229,255,0.25);
+}
+.ng-btn-home {
+  background: #151820 !important;
+  color: #c8d0e0;
+  border-color: #252a35;
+}
+.ng-btn-home:hover {
+  border-color: #00e5ff;
+  background: rgba(0,229,255,0.06) !important;
+}
+
+.ng-btn-reset {
+  background: rgba(255,77,109,0.08) !important;
+  color: #ff7a94;
+  border-color: rgba(255,77,109,0.3);
+}
+.ng-btn-reset:hover {
+  background: rgba(255,77,109,0.18) !important;
+  border-color: #ff4d6d;
+  box-shadow: 0 0 10px rgba(255,77,109,0.2);
+}
+
+/* ── Toggles ─────────────────────────────────────────────────────────────── */
+.ng-toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.ng-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid #252a35;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  user-select: none;
+}
+.ng-toggle-item:hover {
+  border-color: #00e5ff;
+  background: rgba(0,229,255,0.04);
+}
+
+.ng-toggle-dot {
+  width: 32px;
+  height: 18px;
+  border-radius: 9px;
+  background: #252a35;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.ng-toggle-dot::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #555f75;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+/* When checkbox checked, update sibling .ng-toggle-dot */
+input[type="checkbox"]:checked ~ .ng-toggle-dot {
+  background: rgba(0,229,255,0.2);
+}
+input[type="checkbox"]:checked ~ .ng-toggle-dot::after {
+  transform: translateX(14px);
+  background: #00e5ff;
+}
+
+.ng-toggle-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #c8d0e0;
+  letter-spacing: 0.03em;
+}
+
+/* ── Sliders ─────────────────────────────────────────────────────────────── */
+.ng-slider-wrap {
+  margin-top: 2px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ng-control-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #c8d0e0;
+  margin-bottom: 2px;
+  margin-top: 14px;
+}
+
+.ng-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  /* calc: panel 270px - content padding 5px*2 = 260px */
+  width: calc(270px - 20px) !important;
+  min-width: 0;
+  display: block;
+  box-sizing: border-box;
+  height: 14px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.85;
+  padding: 0;
+  margin-bottom: 5px;
+  align-self: stretch;
+}
+.ng-slider:hover { opacity: 1; }
+
+.ng-slider::-webkit-slider-runnable-track {
+  background: linear-gradient(to right, rgba(0,229,255,0.4), #252a35);
+  border-radius: 4px;
+  height: 4px;
+}
+.ng-slider::-moz-range-track {
+  background: linear-gradient(to right, rgba(0,229,255,0.4), #252a35);
+  border-radius: 4px;
+  height: 4px;
+}
+
+/* Thumb — cyan/teal matching original accent color #00e5ff */
+.ng-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 14px;
+  border-radius: 50%;
+  background: #00e5ff;
+  border: none;
+  box-shadow: 0 0 6px rgba(0,229,255,0.5);
+  cursor: pointer;
+}
+.ng-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(0,229,255,0.75);
+}
+.ng-slider::-moz-range-thumb {
+  height: 14px;
+  border-radius: 50%;
+  background: #00e5ff;
+  border: none;
+  box-shadow: 0 0 6px rgba(0,229,255,0.5);
+  cursor: pointer;
+
+}
+.ng-slider::-moz-range-thumb:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 10px rgba(0,229,255,0.75);
+}
+
+/* ── Canvas area ─────────────────────────────────────────────────────────── */
+.ng-area {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #191b20;
+}
+
+.ng-grid-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ng-vis {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ── Loading overlay ─────────────────────────────────────────────────────── */
+.ng-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(13,15,20,0.85);
+  z-index: 50;
+  backdrop-filter: blur(4px);
+}
+
+.ng-loading-text {
+  color: #c8d0e0;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.ng-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(0,229,255,0.15);
+  border-top-color: #00e5ff;
+  border-radius: 50%;
+  animation: ng-spin 0.8s linear infinite;
+}
+@keyframes ng-spin { to { transform: rotate(360deg); } }
+
+/* ── Tooltip ─────────────────────────────────────────────────────────────── */
+.ng-tooltip {
+  position: absolute;
+  display: none;
+  z-index: 100;
+  background: #151820;
+  border: 1px solid #252a35;
+  border-radius: 8px;
+  padding: 10px 14px;
+  min-width: 160px;
+  max-width: 280px;
+  pointer-events: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.ng-tt-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #c8d0e0;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.ng-tt-tags {
+  font-size: 11px;
+  color: #FFD415;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.ng-tt-url {
+  font-size: 11px;
+  color: #00e5ff;
+  word-break: break-all;
+}
+
+/* ── Status bar ──────────────────────────────────────────────────────────── */
+.ng-status {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 11px;
+  color: #555f75;
+  z-index: 5;
+  pointer-events: none;
+  letter-spacing: 0.03em;
+}
+
+/* ── vis.js network canvas background ───────────────────────────────────── */
+.ng-vis canvas {
+  background: transparent !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+.ng-panel-content::-webkit-scrollbar { width: 4px; }
+.ng-panel-content::-webkit-scrollbar-track { background: transparent; }
+.ng-panel-content::-webkit-scrollbar-thumb { background: #252a35; border-radius: 2px; }
+.ng-panel-content::-webkit-scrollbar-thumb:hover { background: #555f75; }
+
+/* ── Color Pickers ───────────────────────────────────────────────────────── */
+.ng-color-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ng-color-picker {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 36px;
+  height: 28px;
+  padding: 2px;
+  border: 1px solid #252a35;
+  border-radius: 6px;
+  background: #151820;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.ng-color-picker::-webkit-color-swatch-wrapper { padding: 0; border-radius: 4px; }
+.ng-color-picker::-webkit-color-swatch { border: none; border-radius: 4px; }
+.ng-color-picker:hover { border-color: #00e5ff; box-shadow: 0 0 6px rgba(0,229,255,0.2); }
+
+.ng-color-hex {
+  font-size: 11px;
+  font-family: monospace;
+  color: #555f75;
+  letter-spacing: 0.05em;
+}
