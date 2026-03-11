@@ -3,7 +3,7 @@
   "name": "Node Graph View",
   "version": "1.0.0",
   "minAppVersion": "1.0.0",
-  "description": "Interactive node graph visualization of your vault — converted from mkdocs-nodegraph",
+  "description": "Interactive node graph visualization of your vault - converted from mkdocs-nodegraph.",
   "author": "bluebird",
   "authorUrl": "https://github.com/yonge123",
   "isDesktopOnly": false
