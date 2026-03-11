@@ -10,8 +10,6 @@ It is a copy of [mkdocs-nodegraph - github](https://github.com/yonge123/mkdocs-n
 ![](./src/obsidian_image001.png)
 
 
-## [Youtubte Link](https://youtu.be/zyj5xpqXqIY)
-
 
 ## Features
 
